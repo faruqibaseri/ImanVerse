@@ -649,12 +649,12 @@
                 </div>
                 <div class="contact-right" id="feedback">
                     <form>
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="comment" rows="6" placeholder="Your Feedback" required></textarea>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <textarea id="comment" name="comment" rows="6" placeholder="Your Feedback" required></textarea>
                         <div class="rating-container">
                             <label>Rating:</label>
-                            <input type="range" min="1" max="10" value="7" oninput="this.nextElementSibling.value = this.value" name="rating">
+                            <input type="range" min="1" max="10" value="7" oninput="this.nextElementSibling.value = this.value" id="rating" name="rating">
                             <output>7</output>
                         </div>
                         <button type="submit" class="btn btn2">Submit</button>
