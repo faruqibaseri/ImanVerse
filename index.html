@@ -785,14 +785,14 @@
 
     const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    document.getElementById("contact-form").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
 
-      const { error } = await db.from("messages").insert([
+      const { error } = await db.from("contact_us").insert([
         { name, email, message }
       ]);
 
@@ -801,7 +801,7 @@
         console.error(error);
       } else {
         alert("We've received your message. Thank you!");
-        document.getElementById("contactForm").reset();
+        document.getElementById("contact-form").reset();
       }
     });
   </script>
