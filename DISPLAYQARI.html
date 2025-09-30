@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QARI</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+                :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #067eb2;
+            --accent-color: #067eb2;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --section-bg: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('islamic-style-lantern-design-ramadan-celebration-with-copy-space.jpg');
+            background-color: #1a1a2e;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100%;
+        }
+
+        /* Navigation */
+        .container-head {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            height: 70px;
+            z-index: 11;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: var(--transition);
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Page Heading */
+        .page-heading {
+    color: #fff;
+    text-align: center;
+    margin-top: 5.7%;
+    font-size: 4em;
+    font-family: roboto slab;
+}
+        
+
+        /* Search Box */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-box {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.input-search {
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 0 40px 0 10px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 80px;
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-search {
+    position: absolute;
+    right: 10px;
+    top: 15%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.btn-search:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+        /* Qari Profile Cards */    
+        .home-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 80px;
+            margin-bottom: 17%;
+        }
+
+        .profile-card {
+            width: 220px;
+            height: 220px;
+            background-color: whitesmoke;
+            padding: 20px;
+            border-radius: 50%;
+            box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .profile-card:hover {
+            border-radius: 10px;
+            height: 260px;
+        }
+
+        .profile-card .img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .profile-card:hover img {
+            border-radius: 10px;
+            transform: translateY(-70px);
+        }
+
+        .img img {
+            object-fit: cover;
+            width: 100%;
+            border-radius: 50%;
+            transition: all 0.4s;
+            z-index: 99;
+            aspect-ratio: 1/1;
+        }
+
+        .caption {
+            text-align: center;
+            /* transform: translateY(-30px); */
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s;
+            position: absolute;
+            bottom: 35px;
+            left: 0;
+            right: 0;
+            padding: 0 15px;
+        }
+
+        .profile-card:hover .caption {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .caption h5 {
+            font-size: 22px;
+            font-weight: 600;
+            color: black;
+            font-family: "Nunito", sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .caption h5 a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        .caption h5 a:hover {
+            color: #067eb2;
+        }
+
+        .caption p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo img {
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-text h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #067eb2;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.5s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .header-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .header-text p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* @media (max-width: 576px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            } */
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .work-card {
+                height: 250px;
+            }
+
+        /* Hamburger animation */
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .toggle .line2 {
+            opacity: 0;
+        }
+        
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="IMANVerse_Logo.png" type="image/icon type">
+</head>
+<body>
+        <div class="container-head">
+            <nav>
+                <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" class="logo" alt="IMANVerse Logo"></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+        
+        <h1 class="page-heading">Meet Your Qari</h1>
+
+        <div class="search-container">
+            <div class="search-box">
+                <form method="get" action="qari_search.html" name="search">
+                    <input type="text" name="query" class="input-search" placeholder="Type to Search...">
+                    <button class="btn-search"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <div class="home-container">
+            <div class="profile-card">
+                <div class="img">
+                    <img src="sheikh mishary.png" alt="Mishary Al-Afasy">
+                </div>
+                <div class="caption">
+                    <h5><a href="MISHARY.html">Mishary Al-Afasy</a></h5>
+                    <p>Qari & Imam</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="img">
+                    <img src="sheikh sudais.png" alt="Abdul Rahman Al-Sudais">
+                </div>
+                <div class="caption">
+                    <h5><a href="sudais.html">Abdul Rahman Al-Sudais</a></h5>
+                    <p>Qari & Imam</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="img">
+                    <img src="sheikh bandar balela.png" alt="Sheikh Bandar Baleelah">
+                </div>
+                <div class="caption">
+                    <h5><a href="bandar.html">Sheikh Bandar Baleelah</a></h5>
+                    <p>Qari & Imam</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="img">
+                    <img src="sheikh saad ghamidi.png" alt="Saad Al-Ghamidi">
+                </div>
+                <div class="caption">
+                    <h5><a href="ghamidi.html">Saad Al-Ghamidi</a></h5>
+                    <p>Qari & Imam</p>
+                </div>
+            </div>
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+              <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" alt="IMANVerse Logo"></a>  
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © IMANVerse. All Rights Reserved 2024 | <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+    </script>
+</body>
+</html>

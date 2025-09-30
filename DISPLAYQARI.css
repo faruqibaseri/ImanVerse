@@ -1,0 +1,376 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#semua{
+    background-image: url(islamic-style-lantern-design-ramadan-celebration-with-copy-space.jpg) ;
+    background-color: #1a1a2e;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-top: 45px;
+
+        
+    }
+    
+    .logo {
+        width: 140px;
+    }
+    
+nav ul li {
+        display: inline-block;
+        list-style: none;
+        margin: 10px 20px;
+    }
+    
+nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        position: relative;
+    }
+    
+nav ul li a::after {
+        content: '';
+        width: 0%;
+        height: 3px;
+        background: #067eb2;
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        transition: 0.5s;
+    }
+    
+nav ul li a:hover::after {
+        width: 100%;
+    }
+
+.home-container {
+    width:100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+.user-info {
+    position: fixed;
+    top: 10px;
+    right: -70px;
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.user-info:hover {
+    right: 10px; /* Slide into view when hovered */
+}
+
+.user-info-trigger {
+    position: fixed;
+    top: 10px;
+    right: 0;
+    height: 40px;
+    width: 10px;
+    background-color: transparent; /* Invisible trigger area */
+    z-index: 999; /* Above other content */
+}
+
+.user-info p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.logout-link {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+
+
+
+.search-box {
+    position: relative;
+    width: fit-content;
+    margin: 20px auto; /* Center the search box horizontally */
+}
+
+.input-search {
+    height: 40px; /* Adjusted for compact size */
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    padding: 0 40px 0 10px; /* Space for the search icon */
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.btn-search:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+
+.profile-card {
+    
+    width: 220px;
+    height: 220px;
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: -5px 8px 45px rgba(51, 51, 51, 0.126);
+    transition: all .4s;
+    margin: 0 20px;
+    margin-top: -10%;
+}
+
+.profile-card:hover {
+    border-radius: 10px;
+    height: 260px;
+}
+
+.profile-card .img {
+    position: relative;
+    width: 100%;
+    height: 150%;
+}
+
+.profile-card:hover img {
+    border-radius: 10px;
+    transform: translateY(-70px);
+}
+
+.img img {
+    object-fit: fill;
+    width: 100%;
+    border-radius: 50%;
+    transition: all .4s;
+    z-index: 99;
+}
+
+.caption {
+    text-align: center;
+    transform: translateY(-90px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s;
+    margin-top: -50%;
+}
+
+.profile-card:hover .caption {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.caption h5 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: -60%;
+    color: black;
+    font-family: "Nunito", sans-serif;
+}
+
+
+
+.footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 2%;
+    transition: transform 0.3s;
+}
+
+.footer-logo:hover {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 2%;
+    transform: scale(1.1);
+    transition: transform 0.5s;
+
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-links div {
+    margin: 0 10px;
+}
+
+.footer-links h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #333;
+    margin-top: 30px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.5);
+    }
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    
+}
+
+.logo {
+    width: 140px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: #067eb2;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+
+.caption h5 a {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: -60%;
+    color: black;
+    font-family: "Nunito", sans-serif;
+    text-decoration: none;
+}

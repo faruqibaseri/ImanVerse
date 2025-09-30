@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEARN</title>
+    <link rel="stylesheet" href="learn.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-KwxQKNj2D0XKEW5O/Y6haRH39PE/xry8SAoLbpbCMraqlX7kUP6KHOnrlrtvuJLR" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="IMANVerse_Logo.png" type="image/icon type">
+</head>
+<body>
+        <div class="container-head">
+            <nav>
+                <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" class="logo" alt="IMANVerse Logo"></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+
+        <h1 class="page-title">Learn</h1>
+        <p class="description">Increase your Islamic knowledge in our collection of Doa, Quotes, Fiqh, and Sirah, everyday.</p>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <form method="get" action="learn_search.html" name="search">
+                    <input type="text" name="query" class="input-search" placeholder="Type to Search...">
+                    <button class="btn-search"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <section class="featured-topics">
+            <h2>Featured Topics</h2>
+            <div class="topic-grid">
+                <a onclick="showImage('Doa 4.png')" class="topic-card">Doa of the Day</a>
+                <a onclick="showImage('Fiqh 8.png')" class="topic-card">Fiqh Insights</a>
+                <a onclick="showImage('Quotes 4.png')" class="topic-card">Daily Quotes</a>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <div class="container">
+            <div class="wrapper">
+                <a href="learn_doa.html";><div class="card"></div></a>
+                <div class="caption">Doa</div>
+            </div>
+            <div class="wrapper">
+                <a href="learn_quotes.html"><div class="card"></div></a>
+                <div class="caption">Quotes</div>
+            </div>
+            <div class="wrapper">
+                <a href="learn_fiqh.html"> <div class="card"></div></a>
+                <div class="caption">Fiqh</div>
+            </div>
+            <div class="wrapper">
+                <a href="learn_sirah.html"> <div class="card"></div></a>
+                <div class="caption">Sirah</div>
+            </div>
+        </div>
+
+
+        <div class="label-container">
+            <div class="label-text">Contribute with us!</div>
+        </div>
+
+        <div id="fullscreenImage" class="fullscreen-image">
+            <button onclick="closeImage()" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <img id="fullImage" src="" alt="Fullscreen Image">
+        </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" alt="IMANVerse Logo"></a>  
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © IMANVerse. All Rights Reserved 2024 | <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+    </div>  
+
+    <script>
+        function showImage(src) {
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const fullImage = document.getElementById('fullImage');
+            fullImage.src = src;
+            fullscreenImage.style.display = 'flex';
+            setTimeout(() => {
+                fullscreenImage.style.opacity = '1';
+                fullImage.style.transform = 'scale(1)';
+            }, 0);
+        }
+
+        function closeImage() {
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const fullImage = document.getElementById('fullImage');
+            fullscreenImage.style.animation = 'fadeOut 0.5s forwards';
+            fullImage.style.animation = 'zoomOut 0.5s forwards';
+            setTimeout(() => {
+                fullscreenImage.style.display = 'none';
+                fullscreenImage.style.opacity = '0';
+                fullscreenImage.style.animation = 'none';
+                fullImage.style.transform = 'scale(0.5)';
+                fullImage.style.animation = 'none';
+            }, 500);
+        }
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+        
+        // Video autoplay on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bg-video');
+            video.play().catch(error => {
+                console.log("Autoplay prevented: ", error);
+            });
+        });
+    </script>
+</body>
+</html>

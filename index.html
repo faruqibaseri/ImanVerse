@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMANVerse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kings&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #067eb2;
+            --accent-color: #067eb2;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --section-bg: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family:'Poppins', sans-serif;
+            background-image: url('islamic-style-lantern-design-ramadan-celebration-with-copy-space.jpg');
+            background-color: #1a1a2e;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100%;
+        }
+
+        /* Header and Navigation */
+        #header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            height: 70px;
+            z-index: 11;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: var(--transition);
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        .header-text {
+            font-family:'Poppins', sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
+            /* text-align: center; */
+            color: var(--text-light);
+            width: 85%;
+        }
+
+        .header-text p {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .header-text h1 {
+            font-size: 10rem;
+            font-family:'Poppins', sans-serif;
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow:
+                -1px -1px 0 #000,  
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            margin-bottom: 50px;
+            font-family:'Poppins', sans-serif;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image, .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+ .btn {
+    display: flex;
+    color: #fff;
+    margin-top: 40px;
+    width: fit-content;
+    border: 1px solid #067eb2;
+    padding: 10px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.5s;
+}
+
+
+.btn:hover {
+    background-color: #067eb2; 
+}
+
+        /* Learn Section */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .work-card {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .work-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            color: var(--text-light);
+            opacity: 1;
+            transition: var(--transition);
+        }
+
+        .card-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card-overlay a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            align-self: flex-end;
+        }
+
+        .center-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Vision Section */
+        .vision-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .vision-card {
+            background: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .vision-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .vision-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .vision-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info p {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            width: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            /* gap: 15px; */
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transfrom 0.5s;
+        }
+
+        .social-links a:hover {
+            color: #067eb2;
+            transform: translateY(-5px);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--secondary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo img {
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-text h1 {
+                font-size: 8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #067eb2;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.5s ease;
+            }   
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .header-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .header-text p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* @media (max-width: 576px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            } */
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .work-card {
+                height: 250px;
+            }
+        
+
+        /* @media (max-width: 400px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .header-text p {
+                font-size: 1rem;
+            }
+        } */
+
+        /* Hamburger animation */
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .toggle .line2 {
+            opacity: 0;
+        }
+        
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  // Initialize Supabase
+  const SUPABASE_URL = "https://dxxrmhktognnksgthntv.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4eHJtaGt0b2dubmtzZ3RobnR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzMDUwODksImV4cCI6MjA2OTg4MTA4OX0.g9iBk-rLbQ-cjmVF51GRM-2xysfokE_RZhahhqQVGmM";
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+</script>
+
+
+</head>
+<body>
+    <!-- Header Section -->
+    <div id="header">
+        <video autoplay muted loop id="bg-video">
+            <source src="5327722_Shahi Zinda_Samarkand_4096x2160.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" class="logo" alt="IMANVerse Logo"></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+            <div class="header-text">
+                <p>Welcome to</p>
+                <h1 style="color:#06b2a7;">IMAN<span style="color: white;">Verse</span></h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Qari Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Qari</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="imt.png" alt="Qari">
+                </div>
+                <div class="about-text">
+                    <p style="color:white; text-align: justify;"; >IMANVerse allows users to discover popular Quran reciters and listen to their recitations. This platform provides easy access to a variety of reciters, enhancing the spiritual experience by enabling users to find and enjoy the voices they prefer. It enriches the Quran listening experience significantly.</p>
+                    <a href="DISPLAYQARI.html" class="btn">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="width:50%; margin:0 auto; height: 1px; background: #ccc; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); opacity: 0.2;">
+
+    <!-- Learn Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Learn</h2>
+            <div class="work-grid">
+                <div class="work-card">
+                    <img src="SOLATBARU.png" alt="Doa">
+                    <div class="card-overlay">
+                        <h3>Doa</h3>
+                        <p>Keep making Dua & trust Allah's plan & timing</p>
+                        <a href="learn_doa.html"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="ZAKATBARU.png" alt="Fiqh">
+                    <div class="card-overlay">
+                        <h3>Fiqh</h3>
+                        <p>The best form of Fiqh is understanding the Book of Allah.</p>
+                        <a href="learn_fiqh.html"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+                <div class="work-card">
+                    <img src="SEDEKAHBARU.png" alt="Quotes">
+                    <div class="card-overlay">
+                        <h3>Quotes</h3>
+                        <p>Life is short, make it sweet</p>
+                        <a href="learn_quotes.html"><i class="fas fa-link"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="center-btn">
+                <a href="learn.html" class="btn" style="display: inline;">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <hr style="width:50%; margin:0 auto; height: 1px; background: #ccc; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); opacity: 0.2;">
+
+    <!-- Vision Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="vision-cards">
+                <div class="vision-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Educational</h3>
+                    <p>To be the leading online resource for Islamic education, providing comprehensive and accessible knowledge on Islamic teachings, history, and culture for people of all ages and backgrounds.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Community</h3>
+                    <p>To create a vibrant online community where Muslims worldwide can connect, support, and uplift each other through shared faith, values, and experiences.</p>
+                </div>
+                <div class="vision-card">
+                    <i class="fas fa-hands-praying"></i>
+                    <h3>Spiritual Guidance</h3>
+                    <p>To be a trusted source of spiritual guidance, providing users with practical and authentic Islamic advice to navigate their personal and professional lives in accordance with Islamic principles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="width:50%; margin:0 auto; height: 1px; background: #ccc; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); opacity: 0.2;">
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p style="color: white;"><i class="fas fa-envelope"></i> imanverse@gmail.com</p>
+                    <p style="color: white;"> <i class="fas fa-phone"></i> 018-9606788</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+              <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" alt="IMANVerse Logo"></a>  
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © IMANVerse. All Rights Reserved 2024 | <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+        
+        // Video autoplay on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bg-video');
+            video.play().catch(error => {
+                console.log("Autoplay prevented: ", error);
+            });
+        });
+    </script>
+
+    <script>
+async function loadUsers() {
+  const { data, error } = await supabase
+    .from("contact_us")
+    .select("*");
+
+  if (error) {
+    console.error("Error fetching users:", error);
+  } else {
+    console.log("contact_us", data);
+    document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+  }
+}
+
+loadUsers();
+</script>
+
+<pre id="output"></pre>
+</body>
+</html>

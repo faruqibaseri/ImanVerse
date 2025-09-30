@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+                :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #067eb2;
+            --accent-color: #067eb2;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --section-bg: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-image: url('islamic-style-lantern-design-ramadan-celebration-with-copy-space.jpg');
+            background-color: #1a1a2e;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100%;
+        }
+
+        #header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            height: 70px;
+            z-index: 11;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            transition: var(--transition);
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 11;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light);
+            margin: 5px;
+            transition: var(--transition);
+        }
+
+        /* Team Section Styling */
+        .team-section {
+            padding: 20px 5%;
+            width: 100%;
+        }
+
+        .team-section h1 {
+            color: #fff;
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 30px;
+            font-size: 4em;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .team-member {
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 15px;
+        }
+
+        .team-member .title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* FAQ Section Styling */
+        .faq-section {
+            padding: 125px 8%;
+            width: 100%;
+            color: white;
+        }
+
+        .faq-section h2 {
+            font-family: 'Roboto Slab', serif;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .accordion .accordion-item button[aria-expanded=true] {
+    border-bottom: 1px solid #03b5d2;
+  }
+  .accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .accordion button:hover, .accordion button:focus {
+    cursor: pointer;
+    color: #03b5d2;
+  }
+  .accordion button:hover::after, .accordion button:focus::after {
+    cursor: pointer;
+    color: #03b5d2;
+    border: 1px solid #03b5d2;
+  }
+  .accordion button .accordion-title {
+    padding: 0 1.5em 0 0;
+    display: flex;
+    
+  }
+  .accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+  }
+  .accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+  }
+  .accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+  }
+  .accordion button[aria-expanded=true] {
+    color: #03b5d2;
+  }
+  .accordion button[aria-expanded=true] .icon::after {
+    width: 0;
+  }
+  .accordion button[aria-expanded=true] + .accordion-content {
+    opacity: 1;
+    max-height: 12em;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+  }
+  .accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+  .accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 1em 0;
+  }
+
+        /* Contact Section Styling */
+        #contact {
+            width: 100%;
+            padding: 50px 10%;
+            color: #fff;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-left, .contact-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-left h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .contact-left p {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-left p i {
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .social-icons {
+            margin-top: 30px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+        }
+
+        .social-icons a:hover {
+            color: #067eb2;
+            transform: translateY(-5px);
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 10px 0;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .rating-container input[type="range"] {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .rating-container output {
+            color: #fff;
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .btn.btn2 {
+            display: inline-block;
+            background: #067eb2;
+            padding: 14px 40px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .btn.btn2:hover {
+            background: #056a93;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+            width: -webkit-fill-available;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo img {
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo p {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer-bottom a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+       /* Responsive Design */
+        @media (max-width: 992px) {
+            .header-text h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #067eb2;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.5s ease;
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .header-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .header-text p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* @media (max-width: 576px) {
+            .header-text h1 {
+                font-size: 2.5rem;
+            } */
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+            
+            .work-card {
+                height: 250px;
+            }
+
+        /* Hamburger animation */
+        .toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .toggle .line2 {
+            opacity: 0;
+        }
+        
+        .toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" class="logo" alt="IMANVerse Logo"></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+
+
+    <div class="team-section">
+        <h1>Our Team</h1>
+        <div class="team-container">
+                        <div class="team-member">
+                <img src="faruqi.png" alt="Muhammad Faruqi Baseri">
+                <p class="title">Muhammad Faruqi Baseri</p>
+            </div>
+            <div class="team-member">
+                <img src="nazril.png" alt="Nazril Fahim Ahmad Zabidi">
+                <p class="title">Nazril Fahim Ahmad Zabidi</p>
+            </div>
+            <div class="team-member">
+                <img src="shidi.png" alt="Ahmad Murshidi Semail">
+                <p class="title">Ahmad Murshidi Semail</p>
+            </div>
+            <div class="team-member">
+                <img src="nabil.png" alt="Nabil Amir">
+                <p class="title">Nabil Amir</p>
+            </div>
+            <div class="team-member">
+                <img src="hilmi.png" alt="Muhammad Hilmi Razali">
+                <p class="title">Muhammad Hilmi Razali</p>
+            </div>
+            <div class="team-member">
+                <img src="hakim.png" alt="Abdul Hakim Aouis Qarney">
+                <p class="title">Abdul Hakim Aouis Qarney</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What is IMANVerse?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>IMANVerse is a website developed to provide access to qari who are famous for their melodious recitation of the holy verses of the Al-Quran, as well as sharing daily prayer guides, quotes, sirah, and fiqh. The purpose is to foster understanding and love for the Al-Quran and Islamic knowledge.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">How can I get started with IMANVerse?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>You can get started by exploring our Learn section, Qari features, and more from the navigation menu above.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Who are the imams featured on IMANVerse?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>We feature four famous imams: Sheikh Mishary Al-Afasy, Sheikh Abdul Rahman Al-Sudais, Sheikh Bandar Baleelah, and Sheikh Saad Al-Ghamidi. Each imam is accompanied by their biodata to provide additional information to users.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">How can I listen to Quran recitations by these imams?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>You can listen to Quran recitations by these imams via the Qari section of our website. Select the imam's name and click the "Play" button under the biodata section.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">What type of content on sirah and fiqh is provided on IMANVerse?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>We provide concise graphical information about the life of the Prophet Muhammad (PBUH) as well as basic fiqh guidelines that are relevant to daily life, such as fasting, prayer, and muamalah. This content is prepared in an easy-to-understand manner for all levels of society and available for download for offline view.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-6" aria-expanded="false"><span class="accordion-title">Who are the team members who created IMANVerse?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>Our team comprises Nazril Fahim Ahmad, Ahmad Murshidi Semail, Muhammad Faruqi Baseri, Nabil Amir, Muhammad Hilmi Razali, and Abdul Hakim.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-7" aria-expanded="false"><span class="accordion-title">How can I contact IMANVerse for any questions or suggestions?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>You can contact us via the Contact Us form on the website. Alternatively, you can send an email to imanverse@gmail.com in the contact us section.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div class="contact-container">
+            <div class="contact-row">
+                <div class="contact-left">
+                    <h1>Give Us Your Feedback</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>imanverse@gmail.com</p>
+                    <p><i class="fa-solid fa-square-phone"></i>018-9606788</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <form method="post" action="aboutus_feedback.html">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="comment" rows="6" placeholder="Your Feedback" required></textarea>
+                        <div class="rating-container">
+                            <label>Rating:</label>
+                            <input type="range" min="1" max="10" value="7" oninput="this.nextElementSibling.value = this.value" name="rating">
+                            <output>7</output>
+                        </div>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+              <a href="index.html"><img src="IMANVerse_Logo-removebg-preview (1).png" alt="IMANVerse Logo"></a>  
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="DISPLAYQARI.html">Qari</a></li>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Documentation</h4>
+                <ul>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Social</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © IMANVerse. All Rights Reserved 2024 | <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <script>
+        const items = document.querySelectorAll(".accordion button");
+
+        function toggleAccordion() {
+            const itemToggle = this.getAttribute('aria-expanded');
+            
+            for (i = 0; i < items.length; i++) {
+                items[i].setAttribute('aria-expanded', 'false');
+            }
+            
+            if (itemToggle == 'false') {
+                this.setAttribute('aria-expanded', 'true');
+            }
+        }
+        
+        items.forEach(item => item.addEventListener('click', toggleAccordion));
+
+                // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+        
+        // Video autoplay on mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bg-video');
+            video.play().catch(error => {
+                console.log("Autoplay prevented: ", error);
+            });
+        });
+        
+    </script>
+</body>
+
+</html>
