@@ -764,7 +764,7 @@
       const comment = document.getElementById("comment").value;
       const rating = document.getElementById("rating").value;
 
-      const { error } = await db.from("contact_us").insert([
+      const { error } = await db.from("feedback").insert([
         { name, email, comment, rating }
       ]);
 
