@@ -647,7 +647,7 @@
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="contact-right" id="contact-us">
+                <div class="contact-right" id="feedback">
                     <form>
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
@@ -756,7 +756,7 @@
 
     const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    document.getElementById("contact-us").addEventListener("submit", async (e) => {
+    document.getElementById("feedback").addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = document.getElementById("name").value;
@@ -773,7 +773,7 @@
         console.error(error);
       } else {
         alert("We've received your feedback. Thank you!");
-        document.getElementById("contact-us").reset();
+        document.getElementById("feedback").reset();
       }
     });
   </script>
