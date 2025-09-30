@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -645,8 +647,8 @@
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
-                <div class="contact-right">
-                    <form method="post" action="aboutus_feedback.html">
+                <div class="contact-right" id="contact-us">
+                    <form>
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="email" name="email" placeholder="Your Email" required>
                         <textarea name="comment" rows="6" placeholder="Your Feedback" required></textarea>
@@ -744,6 +746,37 @@
         });
         
     </script>
+
+    <script>
+    const { createClient } = supabase;
+
+    // 🔑 Replace with your actual Supabase URL and anon key
+    const SUPABASE_URL = "https://dxxrmhktognnksgthntv.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR4eHJtaGt0b2dubmtzZ3RobnR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQzMDUwODksImV4cCI6MjA2OTg4MTA4OX0.g9iBk-rLbQ-cjmVF51GRM-2xysfokE_RZhahhqQVGmM";
+
+    const db = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById("contact-us").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const comment = document.getElementById("comment").value;
+      const rating = document.getElementById("rating").value;
+
+      const { error } = await db.from("contact_us").insert([
+        { name, email, comment, rating }
+      ]);
+
+      if (error) {
+        alert("Error: " + error.message);
+        console.error(error);
+      } else {
+        alert("We've received your feedback. Thank you!");
+        document.getElementById("contact-us").reset();
+      }
+    });
+  </script>
 </body>
 
 </html>
